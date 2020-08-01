@@ -1,0 +1,52 @@
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    bindkey "\e[3~" delete-char
+fi
+
+if [[ -d $HOME/.cargo/bin ]]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [[ -d $HOME/.pyenv ]]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    export PATH="$PYENV_ROOT/bin:$PATH"
+
+    if command -v pyenv &> /dev/null; then
+        eval "$(pyenv init - zsh)"
+        eval "$(pyenv virtualenv-init - zsh)"
+        source $(pyenv root)/completions/pyenv.zsh
+    fi
+fi
+
+if [[ -e $HOME/.poetry/env ]]; then
+    source $HOME/.poetry/env
+fi
+
+if [[ -e $HOME/.nodenv/bin/nodenv ]]; then
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    eval "$(nodenv init - zsh)"
+fi
+
+if command -v nvim &> /dev/null; then
+    export EDITOR=nvim
+fi
+
+export ZSH="/Users/penati/.oh-my-zsh"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+plugins=(
+    cargo
+    git
+    poetry
+    pyenv
+)
+
+source $ZSH/oh-my-zsh.sh
+
+if command -v bat &> /dev/null; then
+    export BAT_THEME=OneHalfDark
+    alias cat="$(command -v bat) --theme $BAT_THEME"
+fi
+command -v exa &> /dev/null && alias ls="$(command -v exa)"
+
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi

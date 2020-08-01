@@ -1,0 +1,19 @@
+only = [
+    "brew",
+    "cargo",
+    "git_repos",
+    "node",
+    "rustup",
+    "shell",
+    "vim",
+]
+
+[git]
+repos = [
+    "~/.nodenv",
+    "~/.nodenv/plugins/node-build",
+    "~/.pyenv",
+    "~/.pyenv/plugins/pyenv-doctor",
+    "~/.pyenv/plugins/pyenv-update",
+    "~/.pyenv/plugins/pyenv-virtualenv",
+]

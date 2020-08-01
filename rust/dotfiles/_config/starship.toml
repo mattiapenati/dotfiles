@@ -1,0 +1,8 @@
+[git_status]
+disabled = true
+
+[python]
+pyenv_version_name = true
+
+[username]
+show_always = true
