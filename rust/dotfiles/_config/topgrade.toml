@@ -5,6 +5,7 @@ only = [
     "node",
     "rustup",
     "shell",
+    "tlmgr",
     "vim",
 ]
 

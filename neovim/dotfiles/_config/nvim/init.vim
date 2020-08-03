@@ -15,6 +15,9 @@ call plug#end()
 """ encoding
 set encoding=utf-8
 
+""" buffer
+set hidden
+
 """ appearence
 set background=dark
 set colorcolumn=80

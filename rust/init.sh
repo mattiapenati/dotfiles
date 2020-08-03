@@ -9,8 +9,8 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 export PATH=$HOME/.cargo/bin:$PATH
 rustup component add rls rust-analysis rust-src
 cargo install topgrade cargo-update
-cargo install starship
-cargo install fd-find ripgrep bat exa
+cargo install cargo-edit
+cargo install fd-find ripgrep bat exa starship
 
 mkdir -p $HOME/.config
 if [ -e $HOME/.config/topgrade.toml ]; then

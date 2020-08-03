@@ -35,5 +35,5 @@ nvim --headless \
     -c PlugInstall \
     -c qa
 nvim --headless \
-    -c "CocInstall -sync coc-json coc-cmake coc-rls coc-fzf-preview" \
+    -c "CocInstall -sync coc-json coc-cmake coc-rls coc-fzf-preview coc-pairs" \
     -c qa
