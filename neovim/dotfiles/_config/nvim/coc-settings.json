@@ -1,4 +1,8 @@
 {
     "coc.preferences.formatOnSaveFiletypes": ["rust"],
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=_build"
+    ],
     "python.jediEnabled": false
 }

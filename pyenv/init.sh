@@ -12,9 +12,10 @@ git clone https://github.com/pyenv/pyenv-doctor.git $HOME/.pyenv/plugins/pyenv-d
 git clone https://github.com/pyenv/pyenv-update.git $HOME/.pyenv/plugins/pyenv-update
 git clone https://github.com/pyenv/pyenv-virtualenv.git $HOME/.pyenv/plugins/pyenv-virtualenv
 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3
+sed -i -e  '1 s/python$/python3/g' $HOME/.poetry/bin/poetry
 
-if [[ -z ${ZSH_CUSTOM+x} ]]; then
+if [[ ! -z ${ZSH_CUSTOM+x} ]]; then
     mkdir -p $ZSH_CUSTOM/plugins/poetry
     poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry
 fi

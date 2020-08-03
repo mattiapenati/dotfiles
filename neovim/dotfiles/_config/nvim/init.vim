@@ -10,6 +10,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinoid/vim-jsonc'
 Plug 'cespare/vim-toml'
 
+""" git
+Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog'
+
 call plug#end()
 
 """ encoding
@@ -41,14 +45,14 @@ match TrailingWhitespace /\s\+$/
 command! -nargs=0 SearchCurrentDir CocCommand fzf-preview.DirectoryFiles
 command! -nargs=0 FindCurrentFile CocCommand fzf-preview.Lines
 command! -nargs=1 GrepCurrentDir CocCommand fzf-preview.ProjectGrep <args>
-map <c-p> :SearchCurrentDir<CR>
-map <c-f> :FindCurrentFile<CR>
-map <c-g> :GrepCurrentDir<SPACE>
+map <C-p> :SearchCurrentDir<CR>
+map <C-f> :FindCurrentFile<CR>
+map <C-g> :GrepCurrentDir<SPACE>
 let g:fzf_preview_directory_files_command = 'fd --type f'
 let g:fzf_preview_use_dev_icons = 1
 
 """ Use <c-p> to trigger completion
-inoremap <silent><expr> <c-p> coc#refresh()
+inoremap <silent><expr> <C-p> coc#refresh()
 
 """ GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
@@ -56,3 +60,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 
+""" clangd
+command! -nargs=0 SwitchSourceHeader CocCommand clangd.switchSourceHeader
+autocmd FileType c nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
+autocmd FileType cpp nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
