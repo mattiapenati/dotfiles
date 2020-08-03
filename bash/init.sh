@@ -9,3 +9,8 @@ if [ -e $HOME/.bashrc ]; then
     mv $HOME/.bashrc $HOME/.bashrc.old_version
 fi
 echo "[[ -r $DIR/dotfiles/_bashrc ]] && . $DIR/dotfiles/_bashrc" > ~/.bashrc
+
+if [ -e $HOME/.bash_profile ]; then
+    mv $HOME/.bash_profile $HOME/.bash_profile.old_version
+fi
+echo "[[ -r \$HOME/.bashrc ]] && . \$HOME/.bashrc" > ~/.bash_profile

@@ -18,6 +18,7 @@ fi
 
 if [[ -e $HOME/.poetry/env ]]; then
     source $HOME/.poetry/env
+    eval "poetry completions bash"
 fi
 
 if [[ -e $HOME/.nodenv/bin/nodenv ]]; then
