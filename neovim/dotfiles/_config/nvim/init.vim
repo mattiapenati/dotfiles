@@ -4,6 +4,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 """ syntax highlight
@@ -13,6 +14,9 @@ Plug 'cespare/vim-toml'
 """ git
 Plug 'tpope/vim-fugitive'
 Plug 'rbong/vim-flog'
+
+""" licenses
+Plug 'antoyo/vim-licenses'
 
 call plug#end()
 
@@ -51,6 +55,15 @@ map <C-g> :GrepCurrentDir<SPACE>
 let g:fzf_preview_directory_files_command = 'fd --type f'
 let g:fzf_preview_use_dev_icons = 1
 
+""" NERDTree
+let NERDTreeChDirMode=2
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.dylib$', '\.dSYM$', '__pycache__']
+nmap <silent> <C-o> :NERDTreeToggle<CR>
+
+
 """ Use <c-p> to trigger completion
 inoremap <silent><expr> <C-p> coc#refresh()
 
@@ -64,3 +77,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 command! -nargs=0 SwitchSourceHeader CocCommand clangd.switchSourceHeader
 autocmd FileType c nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
 autocmd FileType cpp nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
+
+""" licenses
+let g:licenses_copyright_holders_name = 'Mattia Penati <mattia.penati@protonmail.com>'
