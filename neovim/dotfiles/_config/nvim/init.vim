@@ -10,6 +10,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """ syntax highlight
 Plug 'kevinoid/vim-jsonc'
 Plug 'cespare/vim-toml'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 """ git
 Plug 'tpope/vim-fugitive'
@@ -34,9 +36,20 @@ if has("termguicolors")
     set termguicolors
 endif
 colorscheme onehalfdark
-let g:lightline = { 'colorscheme': 'onehalfdark' }
+let g:lightline = {
+    \ 'colorscheme': 'onehalfdark',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'cocstatus': 'coc#status'
+    \ },
+\ }
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 """ whitespaces
+set scrolloff=10
 set expandtab
 set list
 set listchars=tab:▸\ ,trail:◂
@@ -63,7 +76,6 @@ let NERDTreeDirArrows=1
 let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.dylib$', '\.dSYM$', '__pycache__']
 nmap <silent> <C-o> :NERDTreeToggle<CR>
 
-
 """ Use <c-p> to trigger completion
 inoremap <silent><expr> <C-p> coc#refresh()
 
@@ -77,6 +89,14 @@ nmap <silent> gy <Plug>(coc-type-definition)
 command! -nargs=0 SwitchSourceHeader CocCommand clangd.switchSourceHeader
 autocmd FileType c nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
 autocmd FileType cpp nnoremap <buffer> <C-h> :SwitchSourceHeader<CR>
+
+""" rust
+autocmd FileType rust compiler cargo
+
+""" pandoc
+let g:pandoc#folding#level = 9
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#spell#enabled = 0
 
 """ licenses
 let g:licenses_copyright_holders_name = 'Mattia Penati <mattia.penati@protonmail.com>'

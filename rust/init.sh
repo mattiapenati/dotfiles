@@ -22,3 +22,9 @@ if [ -e $HOME/.config/starship.toml ]; then
     mv $HOME/.config/starship.toml $HOME/.config/starship.toml.old_version
 fi
 ln -sv $DIR/dotfiles/_config/starship.toml $HOME/.config/starship.toml
+
+mkdir -p $HOME/.cargo
+if [ -e $HOME/.cargo/config.toml ]; then
+    mv $HOME/.cargo/config.toml $HOME/.cargo/config.toml.old_version
+fi
+ln -sv $DIR/dotfiles/_cargo/config.toml $HOME/.cargo/config.toml
