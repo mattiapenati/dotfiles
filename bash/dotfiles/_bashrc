@@ -43,3 +43,5 @@ command -v exa &> /dev/null && alias ls="$(command -v exa)"
 if command -v starship &> /dev/null; then
     eval "$(starship init bash)"
 fi
+
+[[ -f $HOME/.fzf.bash ]] && source $HOME/.fzf.bash
