@@ -58,6 +58,10 @@ set tabstop=4
 highlight TrailingWhitespace ctermfg=red guifg=red
 match TrailingWhitespace /\s\+$/
 
+""" folding
+set foldmethod=syntax
+set foldlevelstart=20
+
 """ fzf
 command! -nargs=0 SearchCurrentDir CocCommand fzf-preview.DirectoryFiles
 command! -nargs=0 FindCurrentFile CocCommand fzf-preview.Lines
@@ -74,10 +78,15 @@ let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 
 let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.dylib$', '\.dSYM$', '__pycache__']
-nmap <silent> <C-o> :NERDTreeToggle<CR>
+nmap <silent> <leader>o :NERDTreeToggle<CR>
 
 """ Use <c-p> to trigger completion
 inoremap <silent><expr> <C-p> coc#refresh()
+
+""" use <leader-f> to format selected code
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>p <Plug>(coc-format)
 
 """ GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
