@@ -10,7 +10,7 @@ if [[ -d $HOME/.cargo/bin ]]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 
     if command -v sccache &> /dev/null; then
-        export RUSTC_WRAPPER=$HOME/.cargo/bin/sccache
+        export RUSTC_WRAPPER="$(command -v sccache)"
     fi
 fi
 
@@ -43,7 +43,6 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 plugins=(
     cargo
     git
-    poetry
     pyenv
     python
     rust
@@ -60,6 +59,10 @@ command -v exa &> /dev/null && alias ls="$(command -v exa)"
 
 if command -v starship &> /dev/null; then
     eval "$(starship init zsh)"
+fi
+
+if command -v ninja &> /dev/null; then
+    export CMAKE_GENERATOR=Ninja
 fi
 
 typeset -aU path
