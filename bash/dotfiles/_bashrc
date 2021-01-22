@@ -38,7 +38,7 @@ if command -v nvim &> /dev/null; then
 fi
 
 if command -v bat &> /dev/null; then
-    export BAT_THEME=OneHalfDark
+    export BAT_THEME=Dracula
     alias cat="$(command -v bat) --theme $BAT_THEME"
 fi
 command -v exa &> /dev/null && alias ls="$(command -v exa)"

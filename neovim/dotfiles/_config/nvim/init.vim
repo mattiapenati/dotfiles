@@ -1,5 +1,5 @@
 call plug#begin(stdpath('data').'/plugged')
-Plug 'sonph/onehalf', {'rtp': 'vim'}
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'itchyny/lightline.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -35,9 +35,9 @@ set number relativenumber
 if has("termguicolors")
     set termguicolors
 endif
-colorscheme onehalfdark
+colorscheme dracula
 let g:lightline = {
-    \ 'colorscheme': 'onehalfdark',
+    \ 'colorscheme': 'dracula',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
@@ -47,6 +47,7 @@ let g:lightline = {
     \ },
 \ }
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 
 """ whitespaces
 set scrolloff=10
