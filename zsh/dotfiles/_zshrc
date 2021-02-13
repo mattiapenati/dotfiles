@@ -65,4 +65,10 @@ if command -v ninja &> /dev/null; then
     export CMAKE_GENERATOR=Ninja
 fi
 
+export FZF_DEFAULT_OPTS="--no-mouse"
+if command -v fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="fd --type f"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
+
 typeset -aU path
