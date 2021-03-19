@@ -1,0 +1,14 @@
+[cargo-new]
+name = "{{ .name }}"
+email = "{{ .email }}"
+vcs = "git"
+
+[expand]
+pager = true
+theme = "Dracula"
+
+[build]
+rustc-wrapper = "sccache"
+
+[registries.crates-io]
+protocol = "sparse"
