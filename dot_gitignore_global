@@ -1,0 +1,6 @@
+*~
+.DS_Store
+.python-version
+cobertura.xml
+tarpaulin-report.html
+.theseus
