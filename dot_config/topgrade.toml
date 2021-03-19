@@ -1,0 +1,19 @@
+[misc]
+only = [
+  "brew_cask",
+  "brew_formula",
+  "bun",
+  "cargo",
+  "custom_commands",
+  "deno",
+  "self_update",
+  "system",
+  "rustup",
+  "shell",
+  "tlmgr",
+  "tmux",
+  "uv",
+]
+
+[commands]
+"packer.nvim" = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
