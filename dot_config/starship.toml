@@ -1,0 +1,92 @@
+'$schema' = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](fg:#494d64 bold)\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$deno\
+$nodejs\
+$python\
+$ruby\
+$rust\
+[](fg:#494d64)\
+$line_break\
+[╰─](fg:#494d64 bold)\
+$jobs\
+$shell\
+$character
+"""
+right_format = """
+[](fg:#363a4f)\
+$cmd_duration\
+$time
+"""
+
+[username]
+style_user = 'bg:#494d64 bold'
+style_root = 'bg:#ed8796 bold'
+format = '[ $user ]($style)'
+show_always = true
+
+[hostname]
+style = 'bg:#494d64 bold'
+ssh_symbol = ' '
+format = '[@](bg:#494d64 fg:#8087a2)[ $ssh_symbol$hostname ]($style)'
+
+[directory]
+style = 'bg:#494d64 blue bold'
+format = '[](bg:#494d64 fg:#8087a2)[  $path$read_only ]($style)'
+
+[git_branch]
+style = 'bg:#494d64 green bold'
+format = '[](bg:#494d64 fg:#8087a2)[ $symbol$branch(:$remote_branch) ]($style)'
+
+[git_state]
+style = 'bg:#494d64 green bold'
+format = '[](bg:#494d64 fg:#8087a2)[ \($state( $progress_current/$progress_total)\) ]($style)'
+
+[deno]
+style = 'bg:#494d64 green bold'
+format = '[](bg:#494d64 fg:#8087a2)[ $symbol($version) ]($style)'
+
+[nodejs]
+style = 'bg:#494d64 green bold'
+format = '[](bg:#494d64 fg:#8087a2)[ $symbol($version) ]($style)'
+
+[python]
+style = 'bg:#494d64 yellow bold'
+format = '[](bg:#494d64 fg:#8087a2)[ ${symbol}${pyenv_prefix}(${version})(\($virtualenv\) ) ]($style)'
+pyenv_version_name = true
+
+[ruby]
+style = 'bg:#494d64 red bold'
+format = '[](bg:#494d64 fg:#8087a2)[ $symbol($version) ]($style)'
+
+[rust]
+style = 'bg:#494d64 fg:#f5a97f bold'
+format = '[](bg:#494d64 fg:#8087a2)[ $symbol($version ) ]($style)'
+
+[jobs]
+style = 'bg:#363a4f fg:#a6da95 bold'
+format = '[ $symbol$number ]($style)[](bg:#363a4f fg:#8087a2)'
+
+[shell]
+style = 'bg:#363a4f bold'
+format = '[ $indicator ]($style)'
+disabled = false
+
+[character]
+success_symbol = '[](fg:#363a4f bg:#a6da95)[](fg:#a6da95)'
+error_symbol = '[](fg:#363a4f bg:#ed8796)[](fg:#ed8796)'
+
+[cmd_duration]
+style = 'bg:#363a4f fg:#eed49f bold'
+format = '[ $duration  ]($style)[](bg:#363a4f fg:#8087a2)'
+
+[time]
+style = 'bg:#363a4f bold'
+format = '[ $time  ]($style)'
+disabled = false
