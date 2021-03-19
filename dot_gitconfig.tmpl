@@ -1,0 +1,27 @@
+[user]
+    name = {{ .name }}
+    email = {{ .email }}
+
+[core]
+    pager = delta
+    excludesfile = ~/.gitignore_global
+
+[delta]
+    side-by-side = true
+    syntax-theme = Catppuccin-macchiato
+
+[sequence]
+    editor = interactive-rebase-tool
+
+[interactive]
+    diffFilter = delta --color-only
+
+[alias]
+    adog = log --all --decorate --oneline --graph
+    recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+
+[init]
+    defaultBranch = main
+
+[help]
+   autoCorrect = prompt
