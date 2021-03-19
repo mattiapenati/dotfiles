@@ -1,0 +1,25 @@
+[misc]
+only = [
+    "brew_cask",
+    "brew_formula",
+    "bun",
+    "cargo",
+    "custom_commands",
+    "deno",
+    "git_repos",
+    "rustup",
+    "shell",
+    "tlmgr",
+    "tmux",
+]
+
+[git]
+repos = [
+    "~/.pyenv",
+    "~/.pyenv/plugins/pyenv-doctor",
+    "~/.pyenv/plugins/pyenv-update",
+    "~/.pyenv/plugins/pyenv-virtualenv",
+]
+
+[commands]
+"packer.nvim" = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
