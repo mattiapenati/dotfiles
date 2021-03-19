@@ -1,0 +1,12 @@
+*~
+.jj
+.DS_Store
+.python-version
+cobertura.xml
+tarpaulin-report.html
+criterion-report.html
+.venv
+.theseus
+perf.data
+perf.data.old
+flamegraph.svg
