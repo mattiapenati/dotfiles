@@ -1,0 +1,5 @@
+color:
+  theme: custom
+date: "+%d %b %Y %H:%M"
+sorting:
+  dir-grouping: first
