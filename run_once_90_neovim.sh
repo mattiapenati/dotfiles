@@ -2,4 +2,4 @@
 set -eu
 IFS=$'\n\t'
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless "+Lazy! sync" +qa
