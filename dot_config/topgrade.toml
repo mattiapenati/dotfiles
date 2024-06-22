@@ -16,4 +16,4 @@ only = [
 ]
 
 [commands]
-"packer.nvim" = "nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+"LazyVim" = "nvim --headless '+Lazy! sync' +qa"
