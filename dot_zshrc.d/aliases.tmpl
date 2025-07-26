@@ -1,0 +1,12 @@
+# vi: filetype=zsh
+
+(( $+commands[bat] )) && \
+  alias cat=bat
+(( $+commands[lsd] )) && \
+alias ls="lsd --group-directories-first --icon auto"
+
+{{ if (eq .chezmoi.os "linux") -}}
+open() { 
+  xdg-open "$@" >/dev/null 2>&1 &
+}
+{{- end }}

@@ -1,0 +1,37 @@
+# vi: filetype=zsh
+
+{{ if (eq .chezmoi.os "darwin") -}}
+prefix=$(brew --prefix)/opt/fzf/shell
+{{- else if (eq .chezmoi.osRelease.id "arch") -}}
+prefix=/usr/share/fzf
+{{- end }}
+[[ $- == *i* ]] && [ -r $prefix/completions.zsh ] && \
+  source $prefix/completion.zsh
+[ -r $prefix/key-bindings.zsh ] && \
+  source $prefix/key-bindings.zsh
+
+(( $+commands[rustup] )) && \
+  source <(rustup completions zsh) && \
+  fpath=($(rustc --print sysroot)/share/zsh/site-functions $fpath)
+
+(( $+commands[deno] )) && \
+  source <(deno completions zsh)
+(( $+commands[starship] )) && \
+  source <(starship init zsh)
+(( $+commands[fnm] )) && \
+  source <(fnm completions --shell zsh) && \
+  eval "$(fnm env --use-on-cd)"
+(( $+commands[just] )) && \
+  source <(just --completions zsh)
+(( $+commands[uv] )) && \
+  source <(uv generate-shell-completion zsh) && \
+  source <(uvx --generate-shell-completion zsh)
+(( $+commands[jj] )) && \
+  source <(jj util completion zsh)
+(( $+commands[direnv] )) && \
+  source <(direnv hook zsh)
+(( $+commands[atuin] )) && \
+  source <(atuin init zsh --disable-up-arrow) && \
+  source <(atuin gen-completions --shell zsh)
+(( $+commands[zoxide] )) && \
+  source <(zoxide init --cmd cd zsh)
