@@ -1,0 +1,52 @@
+#!/usr/b#in/zsh (source)
+# vi: filetype=zsh
+
+# history control
+export HISTSIZE=32768
+export HISTFILESIZE=${HISTSIZE}
+export HISTFILE=~/.zsh_history
+export HISTORY_IGNORE="(history|exit)"
+
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
+
+{{ if (eq .chezmoi.os "darwin") -}}
+plugins=$(brew --prefix)/share
+{{- else if (eq .chezmoi.osRelease.id "arch") -}}
+plugins=/usr/share/zsh/plugins
+{{- end }}
+[ -r $plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && \
+  source $plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -r $plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+  source $plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+{{ if (and (eq .chezmoi.os "darwin") (eq .chezmoi.arch "arm64")) -}}
+# setting up homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end }}
+
+# set path
+typeset -U path
+[ -d ~/.local/share/omarchy ] && \
+  path=($HOME/.local/share/omarchy/bin $path)
+[ -d ~/.cargo/bin ] && \
+  path=($HOME/.cargo/bin $path)
+[ -d ~/.deno/bin ] && \
+  path=($HOME/.deno/bin $path)
+[ -d ~/.racket/bin ] && \
+  path=($HOME/.racket/bin $path)
+path=($HOME/.local/bin $path)
+
+# set fpath
+typeset -U fpath
+
+# autocompletion
+autoload -Uz compinit
+compinit
+
+# key binding
+bindkey -e
+{{ if (eq .chezmoi.os "darwin") -}}
+bindkey "\e[3~" delete-char
+{{ end }}
