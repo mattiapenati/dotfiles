@@ -1,0 +1,4 @@
+interface:
+  display_name: "Python uv"
+  short_description: "Manage Python projects with uv"
+  default_prompt: "Use $python-uv to inspect this Python project and run tests without using system python."

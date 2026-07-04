@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content Search"
+  short_description: "Search files with fd and text with ripgrep"
+  default_prompt: "Use $content-search to search this project with fd or ripgrep and report the relevant matches."

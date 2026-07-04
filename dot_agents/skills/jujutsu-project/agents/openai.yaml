@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jujutsu Project"
+  short_description: "Manage jj repositories with Git backing"
+  default_prompt: "Use $jujutsu-project to inspect this repository, review changes, and manage jj operations safely."

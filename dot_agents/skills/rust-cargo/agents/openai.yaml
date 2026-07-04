@@ -1,0 +1,4 @@
+interface:
+  display_name: "Rust Cargo"
+  short_description: "Manage Rust projects with Cargo"
+  default_prompt: "Use $rust-cargo to inspect this Rust project, manage dependencies, and run the appropriate checks."
