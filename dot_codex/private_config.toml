@@ -1,0 +1,27 @@
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+personality = "pragmatic"
+
+# always ask configuration
+# approval_policy = "untrusted"
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+approvals_reviewer = "user"
+allow_login_shell = false
+
+[sandbox_workspace_write]
+network_access = true
+
+[tui]
+status_line = [
+  "model-with-reasoning",
+  "current-dir",
+  "context-used",
+  "five-hour-limit",
+  "weekly-limit",
+]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
